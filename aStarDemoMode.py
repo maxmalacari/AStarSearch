@@ -10,17 +10,17 @@ from os import sys
 import time
 
 # Some options to set!
-wWidth = 1600 # dimensions of the drawing window (nominal 700*700)
-wHeight = 1000
-fullScreen = True # do we want to run full screen?
-cols = 80 # number of cells in each dimension (nominal 50*50)
+wWidth = 800 # dimensions of the drawing window (nominal 700*700 or 1600*1000)
+wHeight = 800
+fullScreen = False # do we want to run full screen?
+cols = 50 # number of cells in each dimension (nominal 50*50 or 80*50)
 rows = 50
 wallFraction = 0.3 # fraction of cells that contain an obstacle (0.3 nominal)
 showBoundaries = True # show bounding boxes for cells
 showProcess = True # show the search process (slower)
-pauseTime = 2 # seconds to pause after solving
+pauseTime = 2 # seconds to pause after solving (2 sec nominal)
 seed = 0 # randomization seed
-    
+
 # Some colours
 red = (255,0,0)
 green = (0,255,0)
@@ -83,9 +83,10 @@ class Cell():
                 self.neighbours.append(grid[i][j-1])
 
 def main():
-
-    for i in range(100):
-        print("Puzzle:", i+1)
+    i = 0
+    while True:
+        i += 1
+        print("Puzzle:", i)
         screen.fill(white)
 
         start_i = rand.randint(0,cols-1)
@@ -195,7 +196,7 @@ def main():
                 if event.type == pg.KEYUP:
                     pg.quit()
                     sys.exit()
-                
+
                 if finished:
                     time.sleep(pauseTime)
 
