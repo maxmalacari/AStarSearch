@@ -1,5 +1,4 @@
 # A* search Algorithm - Max Malacari 20/02/2017
-# Edited 16/05/2020
 # Demo mode - create random obstacle fields and start/end points
 # Includes random obstacles in the way
 # Can't move diagonally "between" obstacles
